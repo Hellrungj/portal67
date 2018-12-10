@@ -9,9 +9,22 @@ class Result extends Component {
         return ( 
             <div className="result">
                 <p>{this.state.p}</p>
-                <button onClick={() => {this.props.onNextQuestion()}} >{this.state.button}</button>
+                {this.goToNav()}
             </div>
         );
+    }
+
+    goToNav = () => {
+        if (this.props.question.id !== 2){
+            return (
+                <button onClick={() => {this.props.onNextQuestion()}} >{this.state.button}</button>
+            )
+        } 
+        else {
+            return (
+                <a href="/Nav"> <button>{this.state.button}</button>   </a>
+            )
+        }
     }
 }
  

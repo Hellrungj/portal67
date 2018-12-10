@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 //Images
-import Watch from './Watch.jpg';
-import NotClock from './NotClock.jpg';
-import LightSwitch from './LightSwitch.jpg';
-import Lights from './Lights.jpg';
-import Cup from './Cup.jpg';
-import Basket from './Basket.jpg';
+import Watch from './../../images/questions/Watch.jpg';
+import NotClock from './../../images/questions/NotClock.jpg';
+import LightSwitch from './../../images/questions/LightSwitch.jpg';
+import Lights from './../../images/questions/Lights.jpg';
+import Cup from './../../images/questions/Cup.jpg';
+import Basket from './../../images/questions/Basket.jpg';
 
 //Components
 import Question from './Question'
@@ -124,7 +124,7 @@ class Questions extends Component {
                 return result.id === this.state.currentResult
             })
             return (
-                <Result key={result.id} onNextQuestion={this.handleNextQuestion} result={result}/>
+                <Result key={result.id} onNextQuestion={this.handleNextQuestion} result={result} question={question}/>
             )
         }
     }
@@ -133,9 +133,7 @@ class Questions extends Component {
         let question = getQuestion(this.state.questions, this.state.currentQuestion)
         if (this.state.currentResult === -1){
             return (
-                <div>
-                    <Question key={question.id} onChoice={this.handleChoice} question={question}/>
-                </div>
+                <Question key={question.id} onChoice={this.handleChoice} question={question}/>
             )
         }
     }

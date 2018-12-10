@@ -2,6 +2,9 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Questions from './Questions/Questions';
 import Nav from './Nav/Nav';
+import End from './End';
+import Credits from './Credits';
+
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -13,6 +16,8 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={Questions}/>
       <Route path='/Nav' component={Nav}/>
+      <Route path='/End' component={End}/>
+      <Route path='/Credits' component={Credits}/>
     </Switch>
   </main>
 )
