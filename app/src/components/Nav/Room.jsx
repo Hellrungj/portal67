@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// Images
+// Arrow Images
 import Up from './../../images/arrow_up-24px.svg';
 import Down from './../../images/arrow_down-24px.svg';
 import Left from './../../images/arrow_left-24px.svg';
@@ -25,45 +25,40 @@ class Room extends Component {
         let {up, down, left, right} = this.props.position.positions
         return ( 
             <div>
-                {this.DisplayDirection(up,Up,0)}
-                {this.DisplayDirection(left,Left,1)}
+                <div>
+                    {this.DisplayDirection(up,Up,0,"Up Arrow")}
+                </div>
+                {this.DisplayDirection(left,Left,1,"Left Arrow")}
                 <img src={this.state.img} style={mainImgStyle} alt={this.props.room.title} />
-                {this.DisplayDirection(right,Right,2)}
-                {this.DisplayDirection(down,Down,3)}
+                {this.DisplayDirection(right,Right,2,"Right Arrow")}
+                <div>
+                    {this.DisplayDirection(down,Down,3,"Down Arrow")}
+                </div>
                 <p>{this.state.p}</p>
             </div>
         );
     }
-    DisplayDirection = (value,img,type) => {
+    DisplayDirection = (value,img,type,alt_text) => {
         if (value !== "Fail State"){
+            if (value === "Win State"){
+                if (type === 1 && type === 2) {
+                    return ( <a href="/Home"> <img src={img} style={arrowImgStyle}  alt={alt_text} /> </a> )
+                } else {
+                    return ( <a href="/Home"> <img src={img} style={arrowImgStyle}  alt={alt_text} /> </a> )
+                }
+            } 
             if (value !== -1){
                 if (type === 1 && type === 2) {
-                    return (
-                        <img src={img} onClick={() => {this.props.onChoice(value)}} style={arrowImgStyle}  alt="Basket" />
-                    )
+                    return ( <img src={img} onClick={() => {this.props.onChoice(value)}} style={arrowImgStyle}  alt={alt_text} /> )
                 } else {
-                    return (
-                        <div>
-                            <img src={img} onClick={() => {this.props.onChoice(value)}} style={arrowImgStyle}  alt="Basket" />
-                        </div>
-                    )
+                    return ( <img src={img} onClick={() => {this.props.onChoice(value)}} style={arrowImgStyle}  alt={alt_text} /> )
                 }
             }
         } else {
             if (type === 1 && type === 2) {
-                    return (
-                        <a href="/End">
-                            <img src={img} style={arrowImgStyle}  alt="Basket" />
-                        </a>
-                    )
+                    return ( <a href="/End"> <img src={img} style={arrowImgStyle}  alt={alt_text}/> </a>)
                 } else {
-                    return (
-                        <div>
-                            <a href="/End">
-                                <img src={img} style={arrowImgStyle}  alt="Basket" />
-                            </a>
-                        </div>
-                    )
+                    return ( <a href="/End"> <img src={img} style={arrowImgStyle}  alt={alt_text} /> </a> )
                 }
             }
         }

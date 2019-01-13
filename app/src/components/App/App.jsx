@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navbar from '../Navbar';
-import Main from '../Main';
+import Navbar from './Navbar';
+import MainContent from './MainContent';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
         <header>
           <Navbar />
         </header>
-        <Main />
+        <MainContent />
       </div>
     );
   }

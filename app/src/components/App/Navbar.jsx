@@ -10,7 +10,7 @@ const Navbar = (props) => {
                 </button>
             </div>
         </nav>
-        );
+    );
 }
  
 export default Navbar;
