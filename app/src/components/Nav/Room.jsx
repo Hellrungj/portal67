@@ -25,6 +25,8 @@ class Room extends Component {
         let {up, down, left, right} = this.props.position.positions
         return ( 
             <div>
+                <h1>{this.props.room.title}</h1>
+                <p>{this.state.p}</p>
                 <div>
                     {this.DisplayDirection(up,Up,0,"Up Arrow")}
                 </div>
@@ -34,7 +36,6 @@ class Room extends Component {
                 <div>
                     {this.DisplayDirection(down,Down,3,"Down Arrow")}
                 </div>
-                <p>{this.state.p}</p>
             </div>
         );
     }

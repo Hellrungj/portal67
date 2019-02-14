@@ -8,6 +8,11 @@ import ContactRoom from './../../images/locations/Contact Room.jpg';
 import RoomData from './../../data/rooms'
 import MapData from './../../data/map'
 
+import FlipClock from './AnimatedCard';
+import Clock from './Clock';
+
+import './Nav.css';
+
 const getRoom = (rooms, id) => {
     let room = rooms.find((room) => {
         return room.id === id
@@ -64,6 +69,8 @@ class Nav extends Component {
     render() { 
         return (
             <div>
+                {/*<Clock/>*/}
+                {/*<FlipClock/>*/}
                 {this.GetCurrentRoom()}
             </div>    
         );

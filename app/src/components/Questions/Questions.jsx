@@ -11,6 +11,8 @@ import NotClock from './../../images/questions/NotClock.jpg';
 import Question from './Question'
 import Result from './Result'
 
+import './Questions.css'
+
 const getQuestion = (questions, id) => {
     let question = questions.find((question) => {
         return question.id === id
@@ -23,7 +25,7 @@ class Questions extends Component {
         questions: [
             {
                 id: 0,
-                p: "Question One:",
+                p: "Question One: Which one of these is the clock?",
                 img1: Watch,
                 img1_title: "Watch",
                 img2: NotClock,
@@ -31,15 +33,16 @@ class Questions extends Component {
                 results: [
                     {
                         id:0,
-                        p: "Right",
-                        button: "Next"
+                        p: "Off to a good start, or are you a good liar?",
+                        button: "Time for Question Two"
                     },
                     {
                         id:1,
-                        p: "Wrong",
-                        button: "Next"
+                        p: "Did you hit your head? Perhaps your memory has been affected. Here's your second chance.",
+                        button: "Time for Question Two"
                     }
-                ],    
+                ],
+  
             },
         ],
         currentQuestion: 0,
@@ -68,25 +71,10 @@ class Questions extends Component {
     render() { 
         return (
             <div>
-                {this.Intro()}
                 {this.GetCurrentQuestion()}
                 {this.GetCurrentResult()}
             </div>
         );
-    }
-
-    Intro = () => {
-        if (this.state.currentQuestion === 0 && this.state.currentResult === -1){
-            return (
-                <div className="INTRO">   
-                    <p> So, you *did* make it out. </p> 
-                    <p> Before I let you through, I must make sure you were not compromised. </p>
-                    <p> You know the drill. Nothing personal. </p>
-                    <p> Step up to the terminal. </p>
-                    <p> INITIATE PROTOCOL: Cleanse 3824-B </p>
-                </div>
-            )
-        }
     }
 
     GetCurrentResult = () => {

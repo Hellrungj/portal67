@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import App from './components/App/App';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 render((
   <BrowserRouter>
     <App />
